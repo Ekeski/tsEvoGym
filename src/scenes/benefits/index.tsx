@@ -8,6 +8,7 @@ import {
   HomeModernIcon,
 } from "@heroicons/react/24/solid";
 import { motion } from "framer-motion";
+import BenefitsPageGraphic from "@/assets/BenefitsPageGraphic.png";
 import Benefit from "./Benefit";
 
 const benefits: Array<BenefitType> = [
@@ -86,6 +87,73 @@ const Benefits = ({ setSelectedPage }: Props) => {
             />
           ))}
         </motion.div>
+
+        {/* GRAPHICS AND DESCRIPTION */}
+        <div className="mt-16 items-center justify-between gap-20 md:mt-28 md:flex">
+          {/* GRAPHIC */}
+          <img
+            className="mx-auto"
+            alt="benefits-page-graphic"
+            src={BenefitsPageGraphic}
+          />
+
+          {/* DESCRIPTION */}
+          <div>
+            {/* TITLE */}
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.5 }}
+              variants={{
+                hidden: { opacity: 0, x: 50 },
+                visible: { opacity: 1, x: 0 },
+              }}
+            >
+              <div className="before:absolute before:-top-20 before:-left-20 before:z-[-1] before:content-abstractwaves">
+                <div>
+                  <HText>
+                    MILLIONS OF HAPPAY MEMBERS GETTING{" "}
+                    <span className="text-primary-500">FIT</span>
+                  </HText>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* DESCRIPTION */}
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ delay:0.2, duration: 0.5 }}
+              variants={{
+                hidden: { opacity: 0, x: 50 },
+                visible: { opacity: 1, x: 0 },
+              }}
+            >
+              <p className="my-5">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, nam
+                atque. Voluptates, quos. Amet nulla id iste? Doloribus adipisci
+                eligendi quos recusandae a qui modi, ipsum impedit voluptate
+                cumque quisquam!
+              </p>
+              <p className="mb-5">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Deleniti illum doloremque quibusdam numquam, fugit nemo repellat
+                modi quaerat, sunt harum velit nisi qui iure repudiandae
+                mollitia aliquid tempora? Necessitatibus, repellendus.
+              </p>
+            </motion.div>
+            {/* BUTTON */}
+            <div className="relative mt-16">
+              <div className="before:absolute before:-bottom-20 before:right-40 before:z-[-1] before:content-sparkles">
+                <ActionButton setSelectedPage={setSelectedPage}>
+                  Join now
+                </ActionButton>
+              </div>
+            </div>
+          </div>
+        </div>
       </motion.div>
     </section>
   );
